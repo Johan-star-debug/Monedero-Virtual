@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.ProgramacionesViewController"
+      alignment="CENTER" spacing="12"
+      prefWidth="700" prefHeight="500">
+
+    <Label text="TRANSACCIONES PROGRAMADAS"
+           style="-fx-font-size: 23px; -fx-font-weight: bold;"/>
+
+    <ComboBox fx:id="cmbTipo"
+              promptText="Tipo de operación"/>
+
+    <ComboBox fx:id="cmbPeriodicidad"
+              promptText="Periodicidad"/>
+
+    <ComboBox fx:id="cmbOrigen"
+              promptText="Monedero de origen"/>
+
+    <ComboBox fx:id="cmbDestino"
+              promptText="Monedero de destino (opcional)"/>
+
+    <TextField fx:id="txtMonto"
+               promptText="Monto"/>
+
+    <DatePicker fx:id="fechaProgramada"/>
+
+    <Button text="Programar operación"
+            onAction="#programarTransaccion"/>
+
+    <ListView fx:id="listaProgramaciones"
+              prefWidth="520"
+              prefHeight="160"/>
+
+    <Label fx:id="lblMensaje"/>
+
+</VBox>
+
