@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.PuntosViewController"
+      alignment="CENTER" spacing="15"
+      prefWidth="650" prefHeight="450">
+
+    <Label text="SISTEMA DE PUNTOS"
+           style="-fx-font-size: 25px; -fx-font-weight: bold;"/>
+
+    <Label fx:id="lblPuntos" text="Puntos disponibles: 0"/>
+
+    <Label fx:id="lblRango" text="Rango: BRONCE"/>
+
+    <TableView fx:id="tablaBeneficios"
+               prefWidth="500" prefHeight="180"/>
+
+    <Button text="Canjear beneficio"
+            onAction="#canjearBeneficio"/>
+
+    <Label fx:id="lblMensaje"/>
+
+</VBox>
+

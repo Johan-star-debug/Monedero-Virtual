@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.MonederoViewController"
+      alignment="CENTER" spacing="15"
+      prefWidth="650" prefHeight="450">
+
+<Label text="MIS MONEDEROS"
+       style="-fx-font-size: 25px; -fx-font-weight: bold;"/>
+
+<ComboBox fx:id="cmbMonederos"
+          promptText="Seleccionar monedero"
+          prefWidth="280"/>
+
+<Label fx:id="lblSaldo" text="Saldo: $0"/>
+
+<TextField fx:id="txtNombreMonedero"
+           promptText="Nombre del nuevo monedero"
+           maxWidth="280"/>
+
+<Button text="Crear monedero"
+        onAction="#crearMonedero"/>
+
+<Button text="Consultar saldo"
+        onAction="#consultarSaldo"/>
+
+<Label fx:id="lblMensaje"/>
+
+</VBox>
+

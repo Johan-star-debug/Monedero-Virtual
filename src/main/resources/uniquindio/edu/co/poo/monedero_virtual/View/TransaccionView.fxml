@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.TransaccionViewController"
+      alignment="CENTER" spacing="12"
+      prefWidth="650" prefHeight="500">
+
+    <Label text="GESTIÓN DE TRANSACCIONES"
+           style="-fx-font-size: 23px; -fx-font-weight: bold;"/>
+
+    <ComboBox fx:id="cmbTipoTransaccion"
+              promptText="Tipo de transacción"
+              prefWidth="280"/>
+
+    <ComboBox fx:id="cmbOrigen"
+              promptText="Monedero de origen"
+              prefWidth="280"/>
+
+    <ComboBox fx:id="cmbDestino"
+              promptText="Monedero de destino"
+              prefWidth="280"/>
+
+    <TextField fx:id="txtMonto"
+               promptText="Monto de la operación"
+               maxWidth="280"/>
+
+    <Button text="Procesar transacción"
+            onAction="#procesarTransaccion"/>
+
+    <Label fx:id="lblMensaje"/>
+
+</VBox>

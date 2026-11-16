@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.MenuPrincipalViewController"
+            prefWidth="850" prefHeight="550">
+
+    <top>
+        <VBox alignment="CENTER" spacing="8">
+            <Label text="MONEDERO VIRTUAL"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+            <Label fx:id="lblBienvenida"
+                   text="Bienvenido"/>
+        </VBox>
+    </top>
+
+    <center>
+        <GridPane alignment="CENTER" hgap="15" vgap="15">
+            <Button text="Mis monederos" onAction="#abrirMonederos"
+                    GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Button text="Transacciones" onAction="#abrirTransacciones"
+                    GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <Button text="Mis puntos" onAction="#abrirPuntos"
+                    GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <Button text="Historial" onAction="#abrirHistorial"
+                    GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Button text="Reportes" onAction="#abrirReportes"
+                    GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <Button text="Notificaciones" onAction="#abrirNotificaciones"
+                    GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Button text="Programaciones" onAction="#abrirProgramaciones"
+                    GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        </GridPane>
+    </center>
+
+</BorderPane>
+
