@@ -11,12 +11,25 @@
             style="-fx-background-color: #F3F6FB;">
 
         <top>
-                <VBox style="-fx-background-color: #183153;">
+                <VBox spacing="12"
+                      style="-fx-background-color: #183153;">
                         <padding>
                                 <Insets top="25" right="30" bottom="25" left="30"/>
                         </padding>
+
+                        <Button text="← Volver al menú"
+                                onAction="#volverMenu"
+                                prefWidth="160"
+                                prefHeight="38"
+                                style="-fx-background-color: #315477;
+                           -fx-text-fill: white;
+                           -fx-background-radius: 8;"/>
+
                         <Label text="MIS MONEDEROS"
-                               style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                               style="-fx-font-size: 25px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: white;"/>
+
                         <Label text="Administra tus cuentas y consulta tus saldos"
                                style="-fx-text-fill: #DCE8F5;"/>
                 </VBox>
@@ -29,15 +42,18 @@
                         </padding>
 
                         <VBox spacing="10"
-                              style="-fx-background-color: white; -fx-background-radius: 12;">
+                              style="-fx-background-color: white;
+                         -fx-background-radius: 12;">
                                 <padding>
                                         <Insets top="22" right="25" bottom="22" left="25"/>
                                 </padding>
 
                                 <Label text="Consultar monedero"
-                                       style="-fx-font-size: 19px; -fx-font-weight: bold;"/>
+                                       style="-fx-font-size: 19px;
+                              -fx-font-weight: bold;"/>
 
                                 <Label text="Selecciona una cuenta"/>
+
                                 <ComboBox fx:id="cmbMonederos"
                                           promptText="Selecciona un monedero"
                                           maxWidth="Infinity"/>
@@ -47,19 +63,24 @@
                                         maxWidth="Infinity"/>
 
                                 <Label text="Saldo disponible"/>
+
                                 <Label fx:id="lblSaldo"
-                                       text="$ 0.00"
-                                       style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2463A6;"/>
+                                       text="COP 0.00"
+                                       style="-fx-font-size: 28px;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #2463A6;"/>
                         </VBox>
 
                         <VBox spacing="12"
-                              style="-fx-background-color: white; -fx-background-radius: 12;">
+                              style="-fx-background-color: white;
+                         -fx-background-radius: 12;">
                                 <padding>
                                         <Insets top="22" right="25" bottom="22" left="25"/>
                                 </padding>
 
                                 <Label text="Crear nuevo monedero"
-                                       style="-fx-font-size: 19px; -fx-font-weight: bold;"/>
+                                       style="-fx-font-size: 19px;
+                              -fx-font-weight: bold;"/>
 
                                 <TextField fx:id="txtNombreMonedero"
                                            promptText="Nombre del nuevo monedero"/>
@@ -73,4 +94,5 @@
                                wrapText="true"/>
                 </VBox>
         </center>
+
 </BorderPane>

@@ -6,71 +6,58 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.MonederoViewController"
-            prefWidth="900" prefHeight="620"
+            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.InicioViewController"
+            prefWidth="900"
+            prefHeight="620"
             style="-fx-background-color: #F3F6FB;">
 
-    <top>
-        <VBox style="-fx-background-color: #183153;">
-            <padding>
-                <Insets top="25" right="30" bottom="25" left="30"/>
-            </padding>
-            <Label text="MIS MONEDEROS"
-                   style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
-            <Label text="Administra tus cuentas y consulta tus saldos"
-                   style="-fx-text-fill: #DCE8F5;"/>
-        </VBox>
-    </top>
-
     <center>
-        <VBox spacing="22">
+        <VBox alignment="CENTER"
+              spacing="20"
+              maxWidth="450">
+
             <padding>
-                <Insets top="30" right="35" bottom="30" left="35"/>
+                <Insets top="40" right="40" bottom="40" left="40"/>
             </padding>
 
-            <VBox spacing="10"
-                  style="-fx-background-color: white; -fx-background-radius: 12;">
-                <padding>
-                    <Insets top="22" right="25" bottom="22" left="25"/>
-                </padding>
+            <Label text="MONEDERO VIRTUAL"
+                   style="-fx-font-size: 30px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #183153;"/>
 
-                <Label text="Consultar monedero"
-                       style="-fx-font-size: 19px; -fx-font-weight: bold;"/>
+            <Label text="Administra tu dinero y disfruta de tu sistema de puntos"
+                   wrapText="true"
+                   style="-fx-font-size: 14px;
+                          -fx-text-fill: #526579;"/>
 
-                <Label text="Selecciona una cuenta"/>
-                <ComboBox fx:id="cmbMonederos"
-                          promptText="Selecciona un monedero"
-                          maxWidth="Infinity"/>
+            <Separator/>
 
-                <Button text="Consultar saldo"
-                        onAction="#consultarSaldo"
-                        maxWidth="Infinity"/>
+            <Label text="Registrar cliente"
+                   style="-fx-font-size: 21px;
+                          -fx-font-weight: bold;"/>
 
-                <Label text="Saldo disponible"/>
-                <Label fx:id="lblSaldo"
-                       text="$ 0.00"
-                       style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2463A6;"/>
-            </VBox>
+            <TextField fx:id="txtNombre"
+                       promptText="Nombre completo"
+                       prefHeight="42"/>
 
-            <VBox spacing="12"
-                  style="-fx-background-color: white; -fx-background-radius: 12;">
-                <padding>
-                    <Insets top="22" right="25" bottom="22" left="25"/>
-                </padding>
+            <TextField fx:id="txtCorreo"
+                       promptText="Correo electrónico"
+                       prefHeight="42"/>
 
-                <Label text="Crear nuevo monedero"
-                       style="-fx-font-size: 19px; -fx-font-weight: bold;"/>
-
-                <TextField fx:id="txtNombreMonedero"
-                           promptText="Nombre del nuevo monedero"/>
-
-                <Button text="Crear monedero"
-                        onAction="#crearMonedero"
-                        maxWidth="Infinity"/>
-            </VBox>
+            <Button text="Ingresar al monedero"
+                    onAction="#registrarCliente"
+                    maxWidth="Infinity"
+                    prefHeight="45"
+                    style="-fx-background-color: #183153;
+                           -fx-text-fill: white;
+                           -fx-font-size: 15px;
+                           -fx-background-radius: 8;"/>
 
             <Label fx:id="lblMensaje"
-                   wrapText="true"/>
+                   wrapText="true"
+                   style="-fx-text-fill: #C0392B;"/>
+
         </VBox>
     </center>
+
 </BorderPane>

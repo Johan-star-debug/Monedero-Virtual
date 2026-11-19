@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ProgramacionesViewController {
+public class ProgramacionesViewController extends BaseViewController{
 
     @FXML
     private ComboBox<TipoTransaccion> cmbTipo;

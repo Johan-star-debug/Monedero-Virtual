@@ -9,7 +9,7 @@ import uniquindio.edu.co.poo.monedero_virtual.Model.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class TransaccionViewController {
+public class TransaccionViewController extends BaseViewController{
 
     @FXML
     private ComboBox<TipoTransaccion> cmbTipoTransaccion;

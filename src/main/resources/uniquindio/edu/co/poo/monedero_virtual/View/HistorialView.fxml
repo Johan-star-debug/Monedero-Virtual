@@ -6,18 +6,25 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.HistorialViewController"
-            prefWidth="950" prefHeight="650"
+            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.TransaccionViewController"
+            prefWidth="900" prefHeight="620"
             style="-fx-background-color: #F3F6FB;">
 
     <top>
-        <VBox style="-fx-background-color: #183153;">
+        <VBox spacing="12" style="-fx-background-color: #183153;">
             <padding>
-                <Insets top="25" right="30" bottom="25" left="30"/>
+                <Insets top="20" right="30" bottom="20" left="30"/>
             </padding>
-            <Label text="HISTORIAL DE MOVIMIENTOS"
+
+            <Button text="← Volver al menú"
+                    onAction="#volverMenu"
+                    prefWidth="160" prefHeight="38"
+                    style="-fx-background-color: #315477; -fx-text-fill: white; -fx-background-radius: 8;"/>
+
+            <Label text="TRANSACCIONES"
                    style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
-            <Label text="Consulta las operaciones de tus monederos"
+
+            <Label text="Realiza depósitos, retiros y transferencias"
                    style="-fx-text-fill: #DCE8F5;"/>
         </VBox>
     </top>
@@ -25,42 +32,39 @@
     <center>
         <VBox spacing="18">
             <padding>
-                <Insets top="30" right="35" bottom="30" left="35"/>
+                <Insets top="30" right="45" bottom="30" left="45"/>
             </padding>
 
-            <Label text="Selecciona un monedero"
-                   style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+            <Label text="Nueva transacción"
+                   style="-fx-font-size: 21px; -fx-font-weight: bold;"/>
 
-            <ComboBox fx:id="cmbMonederos"
-                      promptText="Selecciona un monedero"
+            <Label text="Tipo de transacción"/>
+            <ComboBox fx:id="cmbTipoTransaccion"
+                      promptText="Selecciona el tipo"
                       maxWidth="Infinity"/>
 
-            <Button text="Consultar movimientos"
-                    onAction="#consultarHistorial"
+            <Label text="Monedero de origen"/>
+            <ComboBox fx:id="cmbOrigen"
+                      promptText="Selecciona el monedero de origen"
+                      maxWidth="Infinity"/>
+
+            <Label text="Monedero de destino (para transferencias)"/>
+            <ComboBox fx:id="cmbDestino"
+                      promptText="Selecciona el monedero de destino"
+                      maxWidth="Infinity"/>
+
+            <Label text="Monto"/>
+            <TextField fx:id="txtMonto"
+                       promptText="Escribe el monto"/>
+
+            <Button text="Procesar transacción"
+                    onAction="#procesarTransaccion"
                     maxWidth="Infinity"
-                    prefHeight="40"/>
+                    prefHeight="42"
+                    style="-fx-background-color: #2463A6; -fx-text-fill: white; -fx-background-radius: 8;"/>
 
-            <Label text="Movimientos registrados"
-                   style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
-
-            <TableView fx:id="tablaHistorial"
-                       VBox.vgrow="ALWAYS">
-                <columns>
-                    <TableColumn fx:id="colId"
-                                 text="Código" prefWidth="100"/>
-                    <TableColumn fx:id="colTipo"
-                                 text="Tipo" prefWidth="140"/>
-                    <TableColumn fx:id="colMonto"
-                                 text="Monto" prefWidth="130"/>
-                    <TableColumn fx:id="colFecha"
-                                 text="Fecha" prefWidth="180"/>
-                    <TableColumn fx:id="colEstado"
-                                 text="Estado" prefWidth="130"/>
-                </columns>
-            </TableView>
-
-            <Label fx:id="lblMensaje"
-                   wrapText="true"/>
+            <Label fx:id="lblMensaje" wrapText="true"/>
         </VBox>
     </center>
+
 </BorderPane>

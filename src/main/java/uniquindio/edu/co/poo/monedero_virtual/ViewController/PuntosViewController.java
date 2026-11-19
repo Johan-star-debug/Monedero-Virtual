@@ -10,7 +10,7 @@ import uniquindio.edu.co.poo.monedero_virtual.Model.TipoBeneficio;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PuntosViewController {
+public class PuntosViewController extends BaseViewController{
 
     @FXML
     private Label lblPuntos;

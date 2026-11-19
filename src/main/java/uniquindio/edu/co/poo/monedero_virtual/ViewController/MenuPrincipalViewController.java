@@ -22,9 +22,11 @@ public class MenuPrincipalViewController {
 
         this.cliente = cliente;
 
-        lblBienvenida.setText(
-                "Bienvenido, " + cliente.getNombre()
-        );
+        if (lblBienvenida != null && cliente != null) {
+            lblBienvenida.setText(
+                    "Bienvenido, " + cliente.getNombre()
+            );
+        }
     }
 
     public Cliente getCliente() {
@@ -33,44 +35,37 @@ public class MenuPrincipalViewController {
 
     @FXML
     private void abrirMonederos() {
-        cargarVista("MonederoView.fxml",
-                "Monederos");
+        cargarVista("MonederoView.fxml", "Monederos");
     }
 
     @FXML
     private void abrirTransacciones() {
-        cargarVista("TransaccionView.fxml",
-                "Transacciones");
+        cargarVista("TransaccionView.fxml", "Transacciones");
     }
 
     @FXML
     private void abrirPuntos() {
-        cargarVista("PuntosView.fxml",
-                "Sistema de puntos");
+        cargarVista("PuntosView.fxml", "Sistema de puntos");
     }
 
     @FXML
     private void abrirHistorial() {
-        cargarVista("HistorialView.fxml",
-                "Historial");
+        cargarVista("HistorialView.fxml", "Historial");
     }
 
     @FXML
     private void abrirReportes() {
-        cargarVista("ReportesView.fxml",
-                "Reportes");
+        cargarVista("ReportesView.fxml", "Reportes");
     }
 
     @FXML
     private void abrirNotificaciones() {
-        cargarVista("NotificacionesView.fxml",
-                "Notificaciones");
+        cargarVista("NotificacionesView.fxml", "Notificaciones");
     }
 
     @FXML
     private void abrirProgramaciones() {
-        cargarVista("ProgramacionesView.fxml",
-                "Programaciones");
+        cargarVista("ProgramacionesView.fxml", "Programaciones");
     }
 
     private void cargarVista(String archivo, String titulo) {
@@ -88,34 +83,13 @@ public class MenuPrincipalViewController {
 
             Object controlador = loader.getController();
 
-            if (controlador instanceof MonederoViewController) {
-                ((MonederoViewController) controlador)
-                        .establecerCliente(cliente);
-            }
+            // Compartir el mismo cliente con las pantallas secundarias.
+            if (controlador instanceof BaseViewController) {
 
-            if (controlador instanceof TransaccionViewController) {
-                ((TransaccionViewController) controlador)
-                        .establecerCliente(cliente);
-            }
+                BaseViewController base =
+                        (BaseViewController) controlador;
 
-            if (controlador instanceof PuntosViewController) {
-                ((PuntosViewController) controlador)
-                        .establecerCliente(cliente);
-            }
-
-            if (controlador instanceof HistorialViewController) {
-                ((HistorialViewController) controlador)
-                        .establecerCliente(cliente);
-            }
-
-            if (controlador instanceof ReportesViewController) {
-                ((ReportesViewController) controlador)
-                        .establecerCliente(cliente);
-            }
-
-            if (controlador instanceof ProgramacionesViewController) {
-                ((ProgramacionesViewController) controlador)
-                        .establecerCliente(cliente);
+                base.establecerCliente(cliente);
             }
 
             Stage stage = (Stage) lblBienvenida
@@ -128,6 +102,7 @@ public class MenuPrincipalViewController {
         } catch (IOException e) {
 
             e.printStackTrace();
+
             System.out.println(
                     "Error al abrir la interfaz: " + archivo
             );

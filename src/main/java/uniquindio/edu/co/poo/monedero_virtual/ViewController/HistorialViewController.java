@@ -9,7 +9,7 @@ import javafx.scene.control.TableView;
 
 import java.util.List;
 
-public class HistorialViewController {
+public class HistorialViewController extends BaseViewController{
 
     @FXML
     private ComboBox<Monedero> cmbMonederos;

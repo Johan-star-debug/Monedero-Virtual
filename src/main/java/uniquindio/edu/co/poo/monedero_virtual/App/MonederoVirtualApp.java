@@ -12,7 +12,7 @@ public class MonederoVirtualApp extends Application {
 
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource(
-                        "/uniquindio/edu/co/poo/monedero_virtual/view/InicioView.fxml"
+                        "/uniquindio/edu/co/poo/monedero_virtual/View/InicioView.fxml"
                 )
         );
 

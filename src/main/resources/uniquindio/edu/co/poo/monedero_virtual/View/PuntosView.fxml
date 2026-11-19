@@ -7,17 +7,24 @@
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.PuntosViewController"
-            prefWidth="950" prefHeight="650"
+            prefWidth="900" prefHeight="620"
             style="-fx-background-color: #F3F6FB;">
 
     <top>
-        <VBox style="-fx-background-color: #183153;">
+        <VBox spacing="12" style="-fx-background-color: #183153;">
             <padding>
-                <Insets top="25" right="30" bottom="25" left="30"/>
+                <Insets top="20" right="30" bottom="20" left="30"/>
             </padding>
-            <Label text="PUNTOS Y BENEFICIOS"
+
+            <Button text="← Volver al menú"
+                    onAction="#volverMenu"
+                    prefWidth="160" prefHeight="38"
+                    style="-fx-background-color: #315477; -fx-text-fill: white; -fx-background-radius: 8;"/>
+
+            <Label text="SISTEMA DE PUNTOS"
                    style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
-            <Label text="Acumula puntos y disfruta recompensas"
+
+            <Label text="Consulta tus puntos, rango y beneficios"
                    style="-fx-text-fill: #DCE8F5;"/>
         </VBox>
     </top>
@@ -28,59 +35,48 @@
                 <Insets top="25" right="30" bottom="25" left="30"/>
             </padding>
 
-            <GridPane hgap="15">
-                <columnConstraints>
-                    <ColumnConstraints percentWidth="50"/>
-                    <ColumnConstraints percentWidth="50"/>
-                </columnConstraints>
-
-                <VBox spacing="8"
-                      style="-fx-background-color: white; -fx-background-radius: 12;"
-                      GridPane.columnIndex="0">
-                    <padding>
-                        <Insets top="20" right="20" bottom="20" left="20"/>
-                    </padding>
+            <HBox spacing="30">
+                <VBox spacing="8">
                     <Label text="Puntos acumulados"/>
                     <Label fx:id="lblPuntos"
                            text="0"
                            style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #2463A6;"/>
                 </VBox>
 
-                <VBox spacing="8"
-                      style="-fx-background-color: white; -fx-background-radius: 12;"
-                      GridPane.columnIndex="1">
-                    <padding>
-                        <Insets top="20" right="20" bottom="20" left="20"/>
-                    </padding>
-                    <Label text="Tu rango actual"/>
+                <VBox spacing="8">
+                    <Label text="Rango actual"/>
                     <Label fx:id="lblRango"
-                           text="BRONCE"
-                           style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #B77936;"/>
+                           text="Bronce"
+                           style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #183153;"/>
                 </VBox>
-            </GridPane>
+            </HBox>
 
-            <Label text="Catálogo de beneficios"
-                   style="-fx-font-size: 21px; -fx-font-weight: bold;"/>
+            <Label text="Beneficios disponibles"
+                   style="-fx-font-size: 19px; -fx-font-weight: bold;"/>
 
             <TableView fx:id="tablaBeneficios"
                        VBox.vgrow="ALWAYS">
                 <columns>
                     <TableColumn fx:id="colBeneficio"
-                                 text="Beneficio" prefWidth="250"/>
+                                 text="Beneficio"
+                                 prefWidth="200"/>
                     <TableColumn fx:id="colPuntos"
-                                 text="Puntos necesarios" prefWidth="160"/>
+                                 text="Puntos necesarios"
+                                 prefWidth="150"/>
                     <TableColumn fx:id="colDescripcion"
-                                 text="Descripción" prefWidth="380"/>
+                                 text="Descripción"
+                                 prefWidth="350"/>
                 </columns>
             </TableView>
 
-            <Button text="Canjear beneficio seleccionado"
+            <Button text="Canjear beneficio"
                     onAction="#canjearBeneficio"
-                    prefHeight="42"
-                    maxWidth="Infinity"/>
+                    maxWidth="Infinity"
+                    prefHeight="40"
+                    style="-fx-background-color: #2463A6; -fx-text-fill: white;"/>
 
-            <Label fx:id="lblMensaje"
-                   wrapText="true"/>
+            <Label fx:id="lblMensaje" wrapText="true"/>
         </VBox>
     </center>
+
 </BorderPane>

@@ -11,13 +11,20 @@
             style="-fx-background-color: #F3F6FB;">
 
     <top>
-        <VBox style="-fx-background-color: #183153;">
+        <VBox spacing="12" style="-fx-background-color: #183153;">
             <padding>
-                <Insets top="25" right="30" bottom="25" left="30"/>
+                <Insets top="20" right="30" bottom="20" left="30"/>
             </padding>
+
+            <Button text="← Volver al menú"
+                    onAction="#volverMenu"
+                    prefWidth="160" prefHeight="38"
+                    style="-fx-background-color: #315477; -fx-text-fill: white; -fx-background-radius: 8;"/>
+
             <Label text="NOTIFICACIONES"
                    style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
-            <Label text="Mantente informado sobre tus operaciones"
+
+            <Label text="Mantente informado sobre la actividad de tu monedero"
                    style="-fx-text-fill: #DCE8F5;"/>
         </VBox>
     </top>
@@ -28,18 +35,18 @@
                 <Insets top="30" right="35" bottom="30" left="35"/>
             </padding>
 
-            <Label text="Centro de notificaciones"
+            <Label text="Tus notificaciones"
                    style="-fx-font-size: 21px; -fx-font-weight: bold;"/>
+
+            <ListView fx:id="listaNotificaciones"
+                      VBox.vgrow="ALWAYS"/>
 
             <Button text="Actualizar notificaciones"
                     onAction="#actualizarNotificaciones"
-                    prefHeight="42"
-                    maxWidth="Infinity"/>
+                    maxWidth="Infinity"
+                    prefHeight="42"/>
 
-            <ListView fx:id="listaNotificaciones"
-                      VBox.vgrow="ALWAYS"
-                      prefHeight="400"
-                      promptText="No hay notificaciones para mostrar"/>
         </VBox>
     </center>
+
 </BorderPane>

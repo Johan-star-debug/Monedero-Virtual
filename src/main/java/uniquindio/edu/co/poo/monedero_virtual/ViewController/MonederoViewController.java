@@ -1,5 +1,6 @@
 package uniquindio.edu.co.poo.monedero_virtual.ViewController;
 
+import javafx.event.ActionEvent;
 import uniquindio.edu.co.poo.monedero_virtual.Model.Cliente;
 import uniquindio.edu.co.poo.monedero_virtual.Model.Monedero;
 
@@ -8,7 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class MonederoViewController {
+public class MonederoViewController extends BaseViewController{
 
     @FXML
     private ComboBox<Monedero> cmbMonederos;
@@ -89,5 +90,8 @@ public class MonederoViewController {
         lblSaldo.setText(
                 "Saldo: $" + seleccionado.getSaldo()
         );
+    }
+
+    public void volverMenu(ActionEvent actionEvent) {
     }
 }

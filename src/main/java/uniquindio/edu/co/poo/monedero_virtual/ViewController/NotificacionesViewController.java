@@ -5,7 +5,7 @@ import uniquindio.edu.co.poo.monedero_virtual.Model.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-public class NotificacionesViewController {
+public class NotificacionesViewController extends BaseViewController{
 
     @FXML
     private ListView<String> listaNotificaciones;

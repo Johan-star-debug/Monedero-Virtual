@@ -8,7 +8,7 @@ import javafx.scene.control.TextArea;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class ReportesViewController {
+public class ReportesViewController extends BaseViewController{
 
     @FXML
     private TextArea txtReporte;
