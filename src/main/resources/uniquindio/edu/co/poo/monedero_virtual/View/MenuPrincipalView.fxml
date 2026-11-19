@@ -1,40 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.MenuPrincipalViewController"
-            prefWidth="850" prefHeight="550">
+            prefWidth="950" prefHeight="650"
+            style="-fx-background-color: #F3F6FB;">
 
     <top>
-        <VBox alignment="CENTER" spacing="8">
+        <VBox spacing="10"
+              style="-fx-background-color: #183153;">
+            <padding>
+                <Insets top="25" right="35" bottom="25" left="35"/>
+            </padding>
+
             <Label text="MONEDERO VIRTUAL"
-                   style="-fx-font-size: 26px; -fx-font-weight: bold;"/>
+                   style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
             <Label fx:id="lblBienvenida"
-                   text="Bienvenido"/>
+                   text="Bienvenido"
+                   style="-fx-font-size: 16px; -fx-text-fill: #DCE8F5;"/>
         </VBox>
     </top>
 
     <center>
-        <GridPane alignment="CENTER" hgap="15" vgap="15">
-            <Button text="Mis monederos" onAction="#abrirMonederos"
-                    GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <Button text="Transacciones" onAction="#abrirTransacciones"
-                    GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            <Button text="Mis puntos" onAction="#abrirPuntos"
-                    GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-            <Button text="Historial" onAction="#abrirHistorial"
-                    GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-            <Button text="Reportes" onAction="#abrirReportes"
-                    GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <Button text="Notificaciones" onAction="#abrirNotificaciones"
-                    GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            <Button text="Programaciones" onAction="#abrirProgramaciones"
-                    GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-        </GridPane>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="35" right="40" bottom="35" left="40"/>
+            </padding>
+
+            <Label text="Panel principal"
+                   style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #183153;"/>
+
+            <Label text="Selecciona la operación que deseas realizar."
+                   style="-fx-text-fill: #65758B;"/>
+
+            <GridPane hgap="18" vgap="18">
+
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
+
+                <Button text="Mis monederos"
+                        onAction="#abrirMonederos"
+                        prefHeight="90" maxWidth="Infinity"
+                        GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+                <Button text="Depósitos y transferencias"
+                        onAction="#abrirTransacciones"
+                        prefHeight="90" maxWidth="Infinity"
+                        GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Button text="Mis puntos y beneficios"
+                        onAction="#abrirPuntos"
+                        prefHeight="90" maxWidth="Infinity"
+                        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+                <Button text="Historial de movimientos"
+                        onAction="#abrirHistorial"
+                        prefHeight="90" maxWidth="Infinity"
+                        GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Button text="Reportes de gastos"
+                        onAction="#abrirReportes"
+                        prefHeight="90" maxWidth="Infinity"
+                        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+                <Button text="Notificaciones"
+                        onAction="#abrirNotificaciones"
+                        prefHeight="90" maxWidth="Infinity"
+                        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Button text="Transacciones programadas"
+                        onAction="#abrirProgramaciones"
+                        prefHeight="90" maxWidth="Infinity"
+                        GridPane.columnIndex="0" GridPane.rowIndex="3"
+                        GridPane.columnSpan="2"/>
+            </GridPane>
+        </VBox>
     </center>
-
 </BorderPane>
-

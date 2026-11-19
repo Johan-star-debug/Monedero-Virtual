@@ -1,34 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-        <?import javafx.scene.control.*?>
-        <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.MonederoViewController"
-      alignment="CENTER" spacing="15"
-      prefWidth="650" prefHeight="450">
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.MonederoViewController"
+            prefWidth="900" prefHeight="620"
+            style="-fx-background-color: #F3F6FB;">
 
-<Label text="MIS MONEDEROS"
-       style="-fx-font-size: 25px; -fx-font-weight: bold;"/>
+        <top>
+                <VBox style="-fx-background-color: #183153;">
+                        <padding>
+                                <Insets top="25" right="30" bottom="25" left="30"/>
+                        </padding>
+                        <Label text="MIS MONEDEROS"
+                               style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+                        <Label text="Administra tus cuentas y consulta tus saldos"
+                               style="-fx-text-fill: #DCE8F5;"/>
+                </VBox>
+        </top>
 
-<ComboBox fx:id="cmbMonederos"
-          promptText="Seleccionar monedero"
-          prefWidth="280"/>
+        <center>
+                <VBox spacing="22">
+                        <padding>
+                                <Insets top="30" right="35" bottom="30" left="35"/>
+                        </padding>
 
-<Label fx:id="lblSaldo" text="Saldo: $0"/>
+                        <VBox spacing="10"
+                              style="-fx-background-color: white; -fx-background-radius: 12;">
+                                <padding>
+                                        <Insets top="22" right="25" bottom="22" left="25"/>
+                                </padding>
 
-<TextField fx:id="txtNombreMonedero"
-           promptText="Nombre del nuevo monedero"
-           maxWidth="280"/>
+                                <Label text="Consultar monedero"
+                                       style="-fx-font-size: 19px; -fx-font-weight: bold;"/>
 
-<Button text="Crear monedero"
-        onAction="#crearMonedero"/>
+                                <Label text="Selecciona una cuenta"/>
+                                <ComboBox fx:id="cmbMonederos"
+                                          promptText="Selecciona un monedero"
+                                          maxWidth="Infinity"/>
 
-<Button text="Consultar saldo"
-        onAction="#consultarSaldo"/>
+                                <Button text="Consultar saldo"
+                                        onAction="#consultarSaldo"
+                                        maxWidth="Infinity"/>
 
-<Label fx:id="lblMensaje"/>
+                                <Label text="Saldo disponible"/>
+                                <Label fx:id="lblSaldo"
+                                       text="$ 0.00"
+                                       style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2463A6;"/>
+                        </VBox>
 
-</VBox>
+                        <VBox spacing="12"
+                              style="-fx-background-color: white; -fx-background-radius: 12;">
+                                <padding>
+                                        <Insets top="22" right="25" bottom="22" left="25"/>
+                                </padding>
 
+                                <Label text="Crear nuevo monedero"
+                                       style="-fx-font-size: 19px; -fx-font-weight: bold;"/>
+
+                                <TextField fx:id="txtNombreMonedero"
+                                           promptText="Nombre del nuevo monedero"/>
+
+                                <Button text="Crear monedero"
+                                        onAction="#crearMonedero"
+                                        maxWidth="Infinity"/>
+                        </VBox>
+
+                        <Label fx:id="lblMensaje"
+                               wrapText="true"/>
+                </VBox>
+        </center>
+</BorderPane>

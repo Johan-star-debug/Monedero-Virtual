@@ -5,6 +5,6 @@ module uniquindio.edu.co.poo.monedero_virtual {
     exports uniquindio.edu.co.poo.monedero_virtual.App;
     exports uniquindio.edu.co.poo.monedero_virtual.Model;
 
-    opens uniquindio.edu.co.poo.monedero_virtual.viewcontroller
+    opens uniquindio.edu.co.poo.monedero_virtual.ViewController
             to javafx.fxml;
 }
