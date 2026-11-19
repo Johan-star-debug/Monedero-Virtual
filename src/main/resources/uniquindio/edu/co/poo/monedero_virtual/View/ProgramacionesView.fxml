@@ -1,42 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.ProgramacionesViewController"
-      alignment="CENTER" spacing="12"
-      prefWidth="700" prefHeight="500">
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.ProgramacionesViewController"
+            prefWidth="950" prefHeight="680"
+            style="-fx-background-color: #F3F6FB;">
 
-    <Label text="TRANSACCIONES PROGRAMADAS"
-           style="-fx-font-size: 23px; -fx-font-weight: bold;"/>
+    <top>
+        <VBox style="-fx-background-color: #183153;">
+            <padding>
+                <Insets top="25" right="30" bottom="25" left="30"/>
+            </padding>
+            <Label text="TRANSACCIONES PROGRAMADAS"
+                   style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Label text="Organiza tus operaciones futuras y recurrentes"
+                   style="-fx-text-fill: #DCE8F5;"/>
+        </VBox>
+    </top>
 
-    <ComboBox fx:id="cmbTipo"
-              promptText="Tipo de operación"/>
+    <center>
+        <VBox spacing="12">
+            <padding>
+                <Insets top="25" right="35" bottom="25" left="35"/>
+            </padding>
 
-    <ComboBox fx:id="cmbPeriodicidad"
-              promptText="Periodicidad"/>
+            <Label text="Nueva programación"
+                   style="-fx-font-size: 21px; -fx-font-weight: bold;"/>
 
-    <ComboBox fx:id="cmbOrigen"
-              promptText="Monedero de origen"/>
+            <Label text="Tipo de operación"/>
+            <ComboBox fx:id="cmbTipo"
+                      promptText="Selecciona el tipo"
+                      maxWidth="Infinity">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Depósito"/>
+                        <String fx:value="Transferencia"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
 
-    <ComboBox fx:id="cmbDestino"
-              promptText="Monedero de destino (opcional)"/>
+            <Label text="Periodicidad"/>
+            <ComboBox fx:id="cmbPeriodicidad"
+                      promptText="Selecciona la periodicidad"
+                      maxWidth="Infinity">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Diaria"/>
+                        <String fx:value="Semanal"/>
+                        <String fx:value="Mensual"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
 
-    <TextField fx:id="txtMonto"
-               promptText="Monto"/>
+            <Label text="Monedero de origen"/>
+            <ComboBox fx:id="cmbOrigen"
+                      promptText="Selecciona el monedero"
+                      maxWidth="Infinity"/>
 
-    <DatePicker fx:id="fechaProgramada"/>
+            <Label text="Monedero de destino (transferencia)"/>
+            <ComboBox fx:id="cmbDestino"
+                      promptText="Selecciona el destino"
+                      maxWidth="Infinity"/>
 
-    <Button text="Programar operación"
-            onAction="#programarTransaccion"/>
+            <Label text="Monto"/>
+            <TextField fx:id="txtMonto"
+                       promptText="Ingresa el monto"/>
 
-    <ListView fx:id="listaProgramaciones"
-              prefWidth="520"
-              prefHeight="160"/>
+            <Label text="Fecha de inicio"/>
+            <DatePicker fx:id="fechaProgramada"
+                        promptText="Selecciona una fecha"
+                        maxWidth="Infinity"/>
 
-    <Label fx:id="lblMensaje"/>
+            <Button text="Guardar programación"
+                    onAction="#programarTransaccion"
+                    prefHeight="42"
+                    maxWidth="Infinity"/>
 
-</VBox>
+            <Label fx:id="lblMensaje"
+                   wrapText="true"/>
 
+            <Label text="Mis programaciones"
+                   style="-fx-font-size: 19px; -fx-font-weight: bold;"/>
+
+            <ListView fx:id="listaProgramaciones"
+                      VBox.vgrow="ALWAYS"
+                      prefHeight="130"/>
+        </VBox>
+    </center>
+</BorderPane>

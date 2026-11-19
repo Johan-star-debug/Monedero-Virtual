@@ -1,29 +1,54 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.ReportesViewController"
-      spacing="15" alignment="CENTER"
-      prefWidth="700" prefHeight="500">
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.ReportesViewController"
+            prefWidth="950" prefHeight="650"
+            style="-fx-background-color: #F3F6FB;">
 
-    <Label text="REPORTES Y ANÁLISIS"
-           style="-fx-font-size: 25px; -fx-font-weight: bold;"/>
+    <top>
+        <VBox style="-fx-background-color: #183153;">
+            <padding>
+                <Insets top="25" right="30" bottom="25" left="30"/>
+            </padding>
+            <Label text="REPORTES Y ANÁLISIS"
+                   style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Label text="Analiza tus gastos y movimientos"
+                   style="-fx-text-fill: #DCE8F5;"/>
+        </VBox>
+    </top>
 
-    <Button text="Calcular gastos totales"
-            onAction="#calcularGastos"/>
+    <center>
+        <VBox spacing="18">
+            <padding>
+                <Insets top="30" right="35" bottom="30" left="35"/>
+            </padding>
 
-    <Button text="Consultar promedio de gastos"
-            onAction="#consultarPromedio"/>
+            <Label text="Herramientas de análisis"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
 
-    <TextArea fx:id="txtReporte"
-              editable="false"
-              prefWidth="550"
-              prefHeight="300"
-              promptText="Los resultados aparecerán aquí."/>
+            <Button text="Calcular resumen de gastos"
+                    onAction="#calcularGastos"
+                    prefHeight="45"
+                    maxWidth="Infinity"/>
 
-</VBox>
+            <Button text="Consultar promedio de gastos"
+                    onAction="#consultarPromedio"
+                    prefHeight="45"
+                    maxWidth="Infinity"/>
 
+            <Label text="Resultado del análisis"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <TextArea fx:id="txtReporte"
+                      promptText="Aquí aparecerán tus reportes y análisis..."
+                      editable="false"
+                      wrapText="true"
+                      VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
+</BorderPane>

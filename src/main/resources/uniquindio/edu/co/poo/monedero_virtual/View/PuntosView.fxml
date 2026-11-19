@@ -1,28 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.PuntosViewController"
-      alignment="CENTER" spacing="15"
-      prefWidth="650" prefHeight="450">
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.PuntosViewController"
+            prefWidth="950" prefHeight="650"
+            style="-fx-background-color: #F3F6FB;">
 
-    <Label text="SISTEMA DE PUNTOS"
-           style="-fx-font-size: 25px; -fx-font-weight: bold;"/>
+    <top>
+        <VBox style="-fx-background-color: #183153;">
+            <padding>
+                <Insets top="25" right="30" bottom="25" left="30"/>
+            </padding>
+            <Label text="PUNTOS Y BENEFICIOS"
+                   style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Label text="Acumula puntos y disfruta recompensas"
+                   style="-fx-text-fill: #DCE8F5;"/>
+        </VBox>
+    </top>
 
-    <Label fx:id="lblPuntos" text="Puntos disponibles: 0"/>
+    <center>
+        <VBox spacing="18">
+            <padding>
+                <Insets top="25" right="30" bottom="25" left="30"/>
+            </padding>
 
-    <Label fx:id="lblRango" text="Rango: BRONCE"/>
+            <GridPane hgap="15">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
 
-    <TableView fx:id="tablaBeneficios"
-               prefWidth="500" prefHeight="180"/>
+                <VBox spacing="8"
+                      style="-fx-background-color: white; -fx-background-radius: 12;"
+                      GridPane.columnIndex="0">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <Label text="Puntos acumulados"/>
+                    <Label fx:id="lblPuntos"
+                           text="0"
+                           style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #2463A6;"/>
+                </VBox>
 
-    <Button text="Canjear beneficio"
-            onAction="#canjearBeneficio"/>
+                <VBox spacing="8"
+                      style="-fx-background-color: white; -fx-background-radius: 12;"
+                      GridPane.columnIndex="1">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+                    <Label text="Tu rango actual"/>
+                    <Label fx:id="lblRango"
+                           text="BRONCE"
+                           style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: #B77936;"/>
+                </VBox>
+            </GridPane>
 
-    <Label fx:id="lblMensaje"/>
+            <Label text="Catálogo de beneficios"
+                   style="-fx-font-size: 21px; -fx-font-weight: bold;"/>
 
-</VBox>
+            <TableView fx:id="tablaBeneficios"
+                       VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colBeneficio"
+                                 text="Beneficio" prefWidth="250"/>
+                    <TableColumn fx:id="colPuntos"
+                                 text="Puntos necesarios" prefWidth="160"/>
+                    <TableColumn fx:id="colDescripcion"
+                                 text="Descripción" prefWidth="380"/>
+                </columns>
+            </TableView>
 
+            <Button text="Canjear beneficio seleccionado"
+                    onAction="#canjearBeneficio"
+                    prefHeight="42"
+                    maxWidth="Infinity"/>
+
+            <Label fx:id="lblMensaje"
+                   wrapText="true"/>
+        </VBox>
+    </center>
+</BorderPane>

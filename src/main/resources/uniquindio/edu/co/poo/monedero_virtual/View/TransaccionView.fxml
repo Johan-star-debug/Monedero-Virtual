@@ -1,38 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.TransaccionViewController"
-      alignment="CENTER" spacing="12"
-      prefWidth="650" prefHeight="500">
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uniquindio.edu.co.poo.monedero_virtual.ViewController.TransaccionViewController"
+            prefWidth="900" prefHeight="650"
+            style="-fx-background-color: #F3F6FB;">
 
-    <Label text="GESTIÓN DE TRANSACCIONES"
-           style="-fx-font-size: 23px; -fx-font-weight: bold;"/>
+    <top>
+        <VBox style="-fx-background-color: #183153;">
+            <padding>
+                <Insets top="25" right="30" bottom="25" left="30"/>
+            </padding>
+            <Label text="TRANSACCIONES"
+                   style="-fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Label text="Realiza depósitos, retiros y transferencias"
+                   style="-fx-text-fill: #DCE8F5;"/>
+        </VBox>
+    </top>
 
-    <ComboBox fx:id="cmbTipoTransaccion"
-              promptText="Tipo de transacción"
-              prefWidth="280"/>
+    <center>
+        <VBox spacing="16">
+            <padding>
+                <Insets top="30" right="45" bottom="30" left="45"/>
+            </padding>
 
-    <ComboBox fx:id="cmbOrigen"
-              promptText="Monedero de origen"
-              prefWidth="280"/>
+            <Label text="Nueva operación"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
 
-    <ComboBox fx:id="cmbDestino"
-              promptText="Monedero de destino"
-              prefWidth="280"/>
+            <Label text="Tipo de transacción"/>
+            <ComboBox fx:id="cmbTipoTransaccion"
+                      promptText="Selecciona una operación"
+                      maxWidth="Infinity">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Depósito"/>
+                        <String fx:value="Retiro"/>
+                        <String fx:value="Transferencia"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
 
-    <TextField fx:id="txtMonto"
-               promptText="Monto de la operación"
-               maxWidth="280"/>
+            <Label text="Monedero de origen"/>
+            <ComboBox fx:id="cmbOrigen"
+                      promptText="Selecciona el monedero de origen"
+                      maxWidth="Infinity"/>
 
-    <Button text="Procesar transacción"
-            onAction="#procesarTransaccion"/>
+            <Label text="Monedero de destino (para transferencias)"/>
+            <ComboBox fx:id="cmbDestino"
+                      promptText="Selecciona el monedero de destino"
+                      maxWidth="Infinity"/>
 
-    <Label fx:id="lblMensaje"/>
+            <Label text="Monto de la operación"/>
+            <TextField fx:id="txtMonto"
+                       promptText="Ingresa el monto"
+                       maxWidth="Infinity"/>
 
-</VBox>
+            <Button text="Procesar transacción"
+                    onAction="#procesarTransaccion"
+                    prefHeight="45"
+                    maxWidth="Infinity"/>
+
+            <Label fx:id="lblMensaje"
+                   wrapText="true"/>
+        </VBox>
+    </center>
+</BorderPane>
